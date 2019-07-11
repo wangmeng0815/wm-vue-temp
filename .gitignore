@@ -1,1 +1,6 @@
+# git 忽略文件
+
+# 引用的包 
 /node_modules/*
+# 打包文件 
+/dist/*  
