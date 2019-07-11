@@ -8,7 +8,7 @@ function resolve(_dir){
     return path.join(__dirname, '..', _dir);
 }
 
-const config = {
+const webpackConfig = {
     entry: resolve('src/main.js'),
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -49,4 +49,4 @@ const config = {
     ]
 }
 
-module.exports = config;
+module.exports = webpackConfig;
