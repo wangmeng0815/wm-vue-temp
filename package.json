@@ -1,0 +1,26 @@
+{
+  "name": "wm-vue-temp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangmeng0815/wm-vue-temp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangmeng0815/wm-vue-temp/issues"
+  },
+  "homepage": "https://github.com/wangmeng0815/wm-vue-temp#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "vue-loader": "^15.7.0"
+  }
+}
