@@ -1,10 +1,12 @@
 const path = require('path');
 const merge = require('webpack-merge');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const baseConfig = require('./webpack.config');
 
 const devConfig = merge(baseConfig, {
+    mode: 'development',                // 开发环境
     output: {
         filename: '[name].[hash].js',
     },
@@ -25,7 +27,7 @@ const devConfig = merge(baseConfig, {
             filename: 'index.html',
             template: path.join(__dirname, '..', 'index.html'),
             inject: true
-        })
+        }),
     ]
 });
 

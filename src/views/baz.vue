@@ -3,7 +3,10 @@
 </style>
 
 <template>
-    <div>baz</div>
+    <div>
+        <div>baz</div>
+        <div>观察声明周期先后顺序</div>
+    </div>
 </template>
 
 <script>

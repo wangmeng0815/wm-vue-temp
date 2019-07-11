@@ -13,11 +13,11 @@ const router = new Router({
         path: '/foo',
         component: Foo,
         children: [{
-            // 根目录下的 /baz
+            // url --> /baz
             path: '/baz',
             component: Baz
         }, {
-            // /foo/baz
+            // url --> /foo/baz
             path: 'baz',
             component: Baz,
             beforeEnter(to, from, next){

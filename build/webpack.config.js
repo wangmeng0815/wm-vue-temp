@@ -30,6 +30,15 @@ const config = {
                     options: { importLoaders: 1 }
                 },
             ]
+        }, {
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            use: [{
+                loader: 'url-loader', // url-loader依赖file-loader 当超过图片限制时 调用file-loader处理 否则会将文件处理成DataURL
+                options: {
+                    limit: '9999',
+                    // name: 'img/[name].[hash:7].[ext]'
+                }
+            }]
         }]
     },
     plugins:[
