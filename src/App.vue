@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import './assets/styles/reset.css';
 export default {
     data(){
         return {
