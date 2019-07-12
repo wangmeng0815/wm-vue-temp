@@ -53,6 +53,7 @@ const devConfig = merge(baseConfig, {
         // }
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, '..', 'index.html'),
