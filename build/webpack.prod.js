@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = require('./webpack.config');
 const config = require('../config');
@@ -15,6 +15,25 @@ const prodConfig = merge(baseConfig, {
         path: path.join(__dirname, '..', 'dist'),       // 资源文件打包的目录地址
         filename: `${config.assetsFile}/scripts/[name].[contenthash].js`,     // js文件生成的目录地址 注意！不要绝对路径
         publicPath: '/' // 当使用按需加载或加载外部资源（如图像，文件等）时，这是一个重要选项。如果指定的值不正确，则收到404错误
+    },
+    module: {
+        rules: [{
+            test: /\.(sc|le|c)ss$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {
+                    loader: 'css-loader',
+                    options: { importLoaders: 1 }
+                }, 
+                'postcss-loader',
+                {
+                    loader: 'sass-loader',
+                    options: {}
+                }, {
+                    loader: 'less-loader',
+                }
+            ]
+        }]
     },
     optimization: { 
         minimizer: [    //  压缩 javascript文件
@@ -29,6 +48,10 @@ const prodConfig = merge(baseConfig, {
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: '../dist'
+        }),
+        new MiniCssExtractPlugin({           // 打包生成css
+            filename: `${config.assetsFile}/styles/[name].css`,
+            chunkFilename: `${config.assetsFile}/styles/[id].css`
         }),
         new HtmlWebpackPlugin({
             filename: path.join(__dirname, '..', `dist/index.html`),        // 模板文件生成的地址

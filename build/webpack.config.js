@@ -25,15 +25,6 @@ const webpackConfig = {
             loader: 'babel-loader',
             include: [resolve('src'), resolve('node_modules/webpack-dev-server/client')]
         }, {
-            test: /\.css$/,
-            use: [
-                'vue-style-loader',
-                {
-                    loader: 'css-loader',
-                    options: { importLoaders: 1 }
-                },
-            ]
-        }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             use: [{
                 loader: 'url-loader', // url-loader依赖file-loader 当超过图片限制时 调用file-loader处理 否则会将文件处理成DataURL
@@ -46,6 +37,7 @@ const webpackConfig = {
     },
     plugins:[
         new VueLoaderPlugin(),               // vueLoader官方插件
+        
     ]
 }
 
