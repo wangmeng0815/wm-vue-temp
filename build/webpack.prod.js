@@ -3,7 +3,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 const baseConfig = require('./webpack.config');
@@ -27,7 +27,9 @@ const prodConfig = merge(baseConfig, {
         ],          
     },
     plugins: [
-        // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: '../dist'
+        }),
         new HtmlWebpackPlugin({
             filename: path.join(__dirname, '..', `dist/index.html`),        // 模板文件生成的地址
             template: path.join(__dirname, '..', 'index.html'),             // 模板引用的地址
