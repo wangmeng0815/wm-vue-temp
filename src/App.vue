@@ -7,10 +7,10 @@
 
 <template>
     <div>
-        <div>hello world</div>
+        <div>Hello world</div>
         <router-link to='/foo'>Go to Foo</router-link>
         <router-link to='/bar'>Go to Bar</router-link>
-        <router-link to='/list'>Go to List</router-link>
+        <router-link to='/test'>Test For Server</router-link>
         <router-view />
     </div>
 </template>

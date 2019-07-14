@@ -7,6 +7,7 @@ const baseConfig = require('./webpack.config');
 
 const devConfig = merge(baseConfig, {
     mode: 'development',                // 开发环境
+    devtool: 'inline-source-map',
     output: {
         filename: '[name].[hash].js',
     },
@@ -44,13 +45,27 @@ const devConfig = merge(baseConfig, {
          * 会返回index.html 而不是404页面
          */
         historyApiFallback: true,
+        // historyApiFallback: {
+        //     rewrites: [{
+        //         from: '', to:''
+        //     }]
+        // },
         overlay: { // 当出现编译器错误或者警告时，在浏览器中显示全屏叠加。 默认情况下禁用。 boolean object
             warnings: true,
             errors: true
         },
-        // proxy: {                // 把当前客户端的api请求，代理转发到指定服务器上
-        //     '/api': 'http://localhost: 3333'
-        // }
+        // headers: {},
+        // before: function(app, server){
+
+        // },
+        proxy: {                // 把当前客户端的api请求，代理转发到指定服务器上
+            '/api': {
+                target: 'http://localhost:4000',
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

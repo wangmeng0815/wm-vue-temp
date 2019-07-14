@@ -4,7 +4,9 @@ import Foo from '@/views/foo';
 import Bar from '@/views/bar';
 import Baz from '@/views/baz';
 
-import List from '@/views/list';
+import Test from '@/views/test';
+import List from '@/views/testPage/list';
+import Add from '@/views/testPage/add';
 
 Vue.use(Router);
 
@@ -29,8 +31,15 @@ const router = new Router({
         path: '/bar',
         component: Bar
     }, {
-        path: '/list',
-        component: List
+        path: '/test',
+        component: Test,
+        children: [{
+            path: 'list',
+            component: List,
+        }, {
+            path: 'add',
+            component: Add
+        }]
     }]
 });
 
