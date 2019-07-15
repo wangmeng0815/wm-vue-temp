@@ -7,6 +7,7 @@ import Baz from '@/views/baz';
 import Test from '@/views/test';
 import List from '@/views/testPage/list';
 import Add from '@/views/testPage/add';
+import VuexList from '@/views/testPage/vuexList';
 
 Vue.use(Router);
 
@@ -39,6 +40,9 @@ const router = new Router({
         }, {
             path: 'add',
             component: Add
+        }, {
+            path: 'vuexList',
+            component: VuexList,
         }]
     }]
 });

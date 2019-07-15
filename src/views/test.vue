@@ -6,6 +6,7 @@
     <div>
         <router-link to='/test/list'>Go to List</router-link>
         <router-link to='/test/add'>Go to Add</router-link>
+        <router-link to='/test/vuexList'>Go to VuexList</router-link>
         <router-view />
     </div>
 </template>

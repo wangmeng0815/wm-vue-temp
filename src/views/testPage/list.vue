@@ -6,11 +6,7 @@
 
 <template>
     <div>
-        <!-- <ul>
-            <li v-for="item in listData" :key="item.id">
-                {{item.title}}-{{item.content}}-{{item.nums}}
-            </li>
-        </ul> -->
+        <div class="gap"></div>
         <div>
             <span>id</span>
             <input type="number" v-model="id">
@@ -32,7 +28,6 @@
 
 <script>
 import { safeRequest } from '../../utils';
-import { mapState, mapActions, mapGetters } from 'vuex';
 export default {
     data(){
         return {
@@ -41,14 +36,6 @@ export default {
             title: '',
             content: ''
         }
-    },
-    computed: {
-        ...mapState({
-            listData: state => state.test.json_data
-        })
-    },
-    created(){
-        this.$store.dispatch('test/getListData')
     },
     methods: {
         remove(_item){
@@ -87,7 +74,6 @@ export default {
         }
     },
     mounted(){
-        
         this.query()
     }
 }
