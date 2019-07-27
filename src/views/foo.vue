@@ -29,20 +29,17 @@ export default {
     mounted(){
         console.log('foo mounted');
     },
-    beforeEnter(to, from, next){
-        console.log('baz before enter');
-    },
-    beforeRouteEnter(to, from, next){
-        console.log('foo before router enter');
-        console.log('this?', this);
-        next( (vm) =>{
-            console.log('now this?', vm);
-        })
-    },
-    beforeRouteUpdate(to, from, next){
-        console.log('foo before router update');
-        console.log('this?', this);
-        next();
-    }
+    // beforeRouteEnter(to, from, next){
+    //     console.log('foo before router enter');
+    //     console.log('this?', this);
+    //     next( (vm) =>{
+    //         console.log('now this?', vm);
+    //     })
+    // },
+    // beforeRouteUpdate(to, from, next){
+    //     console.log('foo before router update');
+    //     console.log('this?', this);
+    //     next();
+    // }
 }
 </script>

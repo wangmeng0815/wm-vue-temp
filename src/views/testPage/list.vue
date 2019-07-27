@@ -17,18 +17,19 @@
             <button @click="query">查询</button>
         </div>
         <div class="gap"></div>
-        <ul>
-            <li v-for="item in listTable" :key="item.id">
-                <span>{{item.id}}-{{item.title}}-{{item.content}}</span>
-                <span><button @click="remove(item)">删除</button></span>
-            </li>
-        </ul>
+        <list-child :listData="listTable"></list-child>
     </div>
 </template>
 
 <script>
 import { safeRequest } from '../../utils';
+import bus from '@/utils/eventBus';
+
+import listChild from '@/components/listChild';
 export default {
+    components:{
+        listChild
+    },
     data(){
         return {
             listTable: [],
@@ -38,20 +39,7 @@ export default {
         }
     },
     methods: {
-        remove(_item){
-            const { id } = _item;
-            const { query } = this;
-            safeRequest({
-                method: 'post',
-                url: '/test/delete',
-                data:{
-                    id
-                }
-            }).then( res => {
-                query();
-            })
-        },
-        query(){
+        query(val){
             const { id, title, content } = this;
             let _url = '/test/list?'
             if(id){
@@ -74,7 +62,15 @@ export default {
         }
     },
     mounted(){
-        this.query()
+        this.query();
+        console.log('parent mounted');
+        bus.$on('query', this.query);
+    },
+    beforeUpdate(){
+        console.log('parent beforeUpdate')
+    },
+    updated(){
+        console.log('parent updated')
     }
 }
 </script>

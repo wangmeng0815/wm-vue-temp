@@ -29,14 +29,14 @@ export default {
         console.log('baz mounted');
     },
     beforeRouteEnter(to, from, next){
-        console.log('baz before router enter');
+        console.log('baz before route enter');
         console.log('this?', this);
         next( (vm) =>{
             console.log('now this?', vm);
         })
     },
     beforeRouteLeave(to, from, next){
-        console.log('baz before router leave');
+        console.log('baz before route leave');
         next();
     }
 }

@@ -40,7 +40,7 @@ export default {
             const {id, title, content } = this;
             safeRequest({
                 method: 'post',
-                url: '/api/test/add',
+                url: '/test/add',
                 data: {
                     id,
                     title,
