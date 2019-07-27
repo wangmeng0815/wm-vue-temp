@@ -6,9 +6,11 @@ import testApi from '../../api/test';
  */
 const state = {
     json_data: [],
-    id: '',
-    title: '',
-    content: ''
+    queryForm: {
+        id: '',
+        title: '',
+        content: ''
+    },
 }
 
 /**
@@ -24,13 +26,13 @@ const getters = {}
 const mutations = {
     // 提交mutation是更改状态的唯一方法， 并且这个过程是同步的
     updateId(state, payload){
-        state.id = payload;
+        state.queryForm.id = payload;
     },
     updateTitle(state, payload){
-        state.title = payload;
+        state.queryForm.title = payload;
     },
     updateContent(state, payload){
-        state.content = payload;
+        state.queryForm.content = payload;
     },
     setListData(state, payload){
         state.json_data = payload;
@@ -44,7 +46,7 @@ const mutations = {
 const actions = {
     // 异步逻辑都封装到 action里
     getListData({state, commit}){
-        const { id, title, content } = state;
+        const { id, title, content } = state.queryForm;
         testApi.getData({ id, title, content }, resp => {
             if(resp.code == 0){
                 commit('setListData', resp.data)

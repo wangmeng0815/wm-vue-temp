@@ -33,8 +33,6 @@ export default {
         console.log('baz before enter');
     },
     beforeRouteEnter(to, from, next){
-
-        
         console.log('foo before router enter');
         console.log('this?', this);
         next( (vm) =>{

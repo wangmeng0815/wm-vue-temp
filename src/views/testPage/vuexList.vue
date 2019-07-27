@@ -18,6 +18,7 @@
                 {{item.id}}-{{item.title}}-{{item.content}}
             </li>
         </ul>
+        <vuexChild></vuexChild>
     </div>
 </template>
 
@@ -26,6 +27,9 @@ import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 import vuexChild from '@/components/vuexChild';
 const NS = 'test'
 export default {
+    components: {
+        vuexChild
+    },
     data(){
         return {
            
@@ -34,9 +38,9 @@ export default {
     computed: {
         ...mapState(`${NS}`, {
             listData: state => state.json_data,
-            id: state => state.id,
-            title: state => state.title,
-            content: state => state.content
+            id: state => state.queryForm.id,
+            title: state => state.queryForm.title,
+            content: state => state.queryForm.content
         })
     },
     methods:{
