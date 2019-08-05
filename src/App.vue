@@ -17,6 +17,8 @@
 
 <script>
 import './assets/styles/reset.css';
+import './assets/styles/init.css';
+
 export default {
     data(){
         return {

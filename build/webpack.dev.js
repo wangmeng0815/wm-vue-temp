@@ -19,8 +19,10 @@ const devConfig = merge(baseConfig, {
                 {
                     loader: 'css-loader',
                     options: { importLoaders: 1 }
-                }, 
-                'postcss-loader',
+                },
+                {
+                    loader: 'postcss-loader',
+                },
                 {
                     loader: 'sass-loader',
                     options: {}

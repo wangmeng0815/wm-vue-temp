@@ -1,6 +1,8 @@
 <style scoped>
 .test{
     color: red;
+    border-radius: 10px;
+    display: flex;
 }
 </style>
 
