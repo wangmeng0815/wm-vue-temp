@@ -5,17 +5,17 @@ import testApi from '../../api/test';
  * initial state
  */
 const state = {
-    json_data: [],
-    queryForm: {
-        id: '',
-        title: '',
-        content: ''
-    },
+  json_data: [],
+  queryForm: {
+    id: '',
+    title: '',
+    content: ''
+  },
 }
 
 /**
  * 获取vuex数据(state)的统一接口
- * getters 
+ * getters
  */
 const getters = {}
 
@@ -24,19 +24,19 @@ const getters = {}
  * mutations
  */
 const mutations = {
-    // 提交mutation是更改状态的唯一方法， 并且这个过程是同步的
-    updateId(state, payload){
-        state.queryForm.id = payload;
-    },
-    updateTitle(state, payload){
-        state.queryForm.title = payload;
-    },
-    updateContent(state, payload){
-        state.queryForm.content = payload;
-    },
-    setListData(state, payload){
-        state.json_data = payload;
-    },
+  // 提交mutation是更改状态的唯一方法， 并且这个过程是同步的
+  updateId(state, payload) {
+    state.queryForm.id = payload;
+  },
+  updateTitle(state, payload) {
+    state.queryForm.title = payload;
+  },
+  updateContent(state, payload) {
+    state.queryForm.content = payload;
+  },
+  setListData(state, payload) {
+    state.json_data = payload;
+  },
 }
 
 /**
@@ -44,24 +44,24 @@ const mutations = {
  * action
  */
 const actions = {
-    // 异步逻辑都封装到 action里
-    getListData({state, commit}){
-        const { id, title, content } = state.queryForm;
-        testApi.getData({ id, title, content }, resp => {
-            if(resp.code == 0){
-                commit('setListData', resp.data)
-            }
-        })
-    },
-    add({ commit, state }){
+  // 异步逻辑都封装到 action里
+  getListData({ state, commit }) {
+    const { id, title, content } = state.queryForm;
+    testApi.getData({ id, title, content }, resp => {
+      if (resp.code == 0) {
+        commit('setListData', resp.data)
+      }
+    })
+  },
+  add({ commit, state }) {
 
-    }
+  }
 }
 
 export default {
-    namespaced: true,
-    state,
-    getters,
-    actions, 
-    mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 }

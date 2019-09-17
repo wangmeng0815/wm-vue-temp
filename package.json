@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --progress --config build/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
+    "mpa": "cross-env NODE_ENV=production webpack --config build/webpack.mpa.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,11 @@
   "bugs": {
     "url": "https://github.com/wangmeng0815/wm-vue-temp/issues"
   },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR"
+  ],
   "homepage": "https://github.com/wangmeng0815/wm-vue-temp#readme",
   "dependencies": {
     "axios": "^0.19.0",
@@ -36,7 +42,6 @@
     "clean-webpack-plugin": "2.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
-    "cssnano": "^4.1.10",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
@@ -45,7 +50,6 @@
     "node-sass": "^4.12.0",
     "postcss": "^7.0.17",
     "postcss-color-mod-function": "^3.0.3",
-    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^7.1.0",

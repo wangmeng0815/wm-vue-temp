@@ -12,6 +12,7 @@ import VuexList from '@/views/testPage/vuexList';
 Vue.use(Router);
 
 const router = new Router({
+    mode: 'history',
     routes: [{
         path: '/foo',
         component: Foo,

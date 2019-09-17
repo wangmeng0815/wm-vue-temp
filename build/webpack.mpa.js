@@ -2,14 +2,16 @@ const path = require('path');
 // const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = require('./webpack.config');
 const config = require('../config');
+const entryConfig = require('../src/utils/get_entry_config');
 
+delete baseConfig.entry;
 const prodConfig = merge(baseConfig, {
+    entry: entryConfig.Entries,
     mode: 'production',     // 生产环境 会压缩输出
     devtool: 'nosources-source-map',
     output:{
@@ -95,21 +97,7 @@ const prodConfig = merge(baseConfig, {
             filename: `${config.assetsFile}/styles/[name].css`,
             chunkFilename: `${config.assetsFile}/styles/[id].css`
         }),
-        new HtmlWebpackPlugin({
-            filename: path.join(__dirname, '..', `dist/index.html`),        // 模板文件生成的地址
-            template: path.join(__dirname, '..', 'src/views/index/index.html'),             // 模板引用的地址
-            inject: true,
-        }),
-        // new HtmlWebpackPlugin({
-        //     filename: path.join(__dirname, '..', `dist/index.html`),        // 模板文件生成的地址
-        //     template: path.join(__dirname, '..', 'index.html'),             // 模板引用的地址
-        //     inject: true,
-        //     // minify: {
-        //     //     collapseWhitespace: true,   // 折叠空白行
-        //     //     removeComments: true,   // 移除注释
-        //     //     removeAttributeQuotes: true,    // 移除属性多余的引号
-        //     // }
-        // }),
+        ...entryConfig.HTMLPlugins
     ]
 })
 
