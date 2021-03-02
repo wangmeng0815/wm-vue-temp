@@ -3,5 +3,10 @@
  */
 
 module.exports = {
-    assetsFile: 'assets',       // 静态资源文件地址
+    dev: {
+
+    },
+    build: {
+
+    }
 }

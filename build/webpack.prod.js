@@ -14,7 +14,7 @@ const prodConfig = merge(baseConfig, {
     devtool: 'nosources-source-map',
     output:{
         path: path.join(__dirname, '..', 'dist'),       // 资源文件打包的目录地址
-        filename: `${config.assetsFile}/scripts/[name].[contenthash].js`,     // js文件生成的目录地址 注意！不要绝对路径
+        filename: `assets/scripts/[name].[contenthash].js`,     // js文件生成的目录地址 注意！不要绝对路径
         publicPath: '/' // 当使用按需加载或加载外部资源（如图像，文件等）时，这是一个重要选项。如果指定的值不正确，则收到404错误
     },
     module: {

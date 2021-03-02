@@ -30,7 +30,7 @@ const webpackConfig = {
                 loader: 'url-loader', // url-loader依赖file-loader 当超过图片限制时 调用file-loader处理 否则会将文件处理成DataURL
                 options: {
                     limit: 1024 * 8,
-                    name: `${config.assetsFile}/images/[name].[ext]`     // 图片文件打包的目录地址
+                    name: `assets/images/[name].[ext]`     // 图片文件打包的目录地址
                 }
             }]
         }]

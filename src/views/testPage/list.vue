@@ -56,7 +56,7 @@ export default {
       })
 
       if (resp.code == 0) {
-        this.listTable = res.data;
+        this.listTable = resp.data;
       }
     }
   },

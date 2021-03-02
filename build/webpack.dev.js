@@ -10,6 +10,7 @@ const devConfig = merge(baseConfig, {
     devtool: 'inline-source-map',
     output: {
         filename: '[name].[hash].js',
+        publicPath: '/'
     },
     module: {
         rules: [{
@@ -34,7 +35,7 @@ const devConfig = merge(baseConfig, {
     },
     devServer: {
         host: '0.0.0.0',
-        port: '8015',           
+        port: '8015',
         // contentBase: './dist', //默认会以根文件夹提供本地服务器，这里指定文件夹
         hot: true,
         open: true,

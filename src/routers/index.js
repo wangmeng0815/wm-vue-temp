@@ -8,6 +8,7 @@ import Test from '@/views/test';
 import List from '@/views/testPage/list';
 import Add from '@/views/testPage/add';
 import VuexList from '@/views/testPage/vuexList';
+// import Temp from '@/views/temp.vue';
 
 Vue.use(Router);
 
@@ -19,18 +20,20 @@ const router = new Router({
         children: [{
             // url --> /baz
             path: '/baz',
-            component: Baz
+            component: Baz,
+            // component: () => import(/* webpachChunkName: "baz"*/'@/views/baz'),
         }, {
             // url --> /foo/baz
             path: 'baz',
             component: Baz,
+            // component: () => import(/* webpachChunkName: "baz"*/'@/views/baz'),
             beforeEnter(to, from, next){
                 console.log('baz before enter in router');
                 next();
             }
         }]
     }, {
-        path: '/bar',
+        path: '/bar/t/k',
         component: Bar
     }, {
         path: '/test',
@@ -45,6 +48,10 @@ const router = new Router({
             path: 'vuexList',
             component: VuexList,
         }]
+    }, {
+      path: '/temp/index',
+      // component: Temp,
+      component: () => import(/* webpachChunkName: "temp"*/'@/views/temp.vue'),
     }]
 });
 

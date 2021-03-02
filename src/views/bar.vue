@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import helloWorld from '@/components/helloWorld';
+// import helloWorld from '@/components/helloWorld';
 import customImage from '@/components/customImage';
-
+const helloWorld = () => import(/* webpackChunkName: "helloWorld" */'@/components/helloWorld');
 export default {
     components: {
         helloWorld,
@@ -25,7 +25,7 @@ export default {
     },
     data(){
         return {
-            
+
         }
     }
 }
